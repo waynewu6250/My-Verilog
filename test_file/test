@@ -1,0 +1,37 @@
+#! /usr/local/Cellar/icarus-verilog/10.2_1/bin/vvp
+:ivl_version "10.2 (stable)" "(v10_2)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x7fddd9d00be0 .scope module, "test" "test" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a"
+    .port_info 1 /INPUT 1 "b"
+    .port_info 2 /OUTPUT 1 "o"
+o0x101b8a008 .functor BUFZ 1, C4<z>; HiZ drive
+v0x7fddd9d00d40_0 .net "a", 0 0, o0x101b8a008;  0 drivers
+o0x101b8a038 .functor BUFZ 1, C4<z>; HiZ drive
+v0x7fddd9d10dd0_0 .net "b", 0 0, o0x101b8a038;  0 drivers
+o0x101b8a068 .functor BUFZ 1, C4<z>; HiZ drive
+v0x7fddd9d10e70_0 .net "o", 0 0, o0x101b8a068;  0 drivers
+v0x7fddd9d10f00_0 .var "string", 168 0;
+    .scope S_0x7fddd9d00be0;
+T_0 ;
+    %pushi/vec4 2464694482, 0, 34;
+    %concati/vec4 3863003712, 0, 32;
+    %concati/vec4 3872578272, 0, 32;
+    %concati/vec4 3637133542, 0, 32;
+    %concati/vec4 3907310300, 0, 32;
+    %concati/vec4 103, 0, 7;
+    %store/vec4 v0x7fddd9d10f00_0, 0, 169;
+    %vpi_call 2 7 "$display", "%s\012", v0x7fddd9d10f00_0 {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "test.v";
