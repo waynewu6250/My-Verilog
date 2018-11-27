@@ -1,0 +1,89 @@
+#! /usr/local/Cellar/icarus-verilog/10.2_1/bin/vvp
+:ivl_version "10.2 (stable)" "(v10_2)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x7fb14dc03000 .scope module, "ALT_MULTADD" "ALT_MULTADD" 2 5;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "iCLK"
+    .port_info 1 /INPUT 1 "iRST_N"
+    .port_info 2 /INPUT 8 "iA0"
+    .port_info 3 /INPUT 8 "iB0"
+    .port_info 4 /INPUT 8 "iA1"
+    .port_info 5 /INPUT 8 "iB1"
+    .port_info 6 /OUTPUT 17 "MultAdd"
+L_0x7fb14dc17380 .functor BUFZ 17, v0x7fb14dc17260_0, C4<00000000000000000>, C4<00000000000000000>, C4<00000000000000000>;
+v0x7fb14dc03160_0 .net "MultAdd", 16 0, L_0x7fb14dc17380;  1 drivers
+v0x7fb14dc169b0_0 .var "a0", 7 0;
+v0x7fb14dc16a50_0 .var "a1", 7 0;
+v0x7fb14dc16b00_0 .var "b0", 7 0;
+v0x7fb14dc16bb0_0 .var "b1", 7 0;
+o0x10fa990f8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0x7fb14dc16ca0_0 .net "iA0", 7 0, o0x10fa990f8;  0 drivers
+o0x10fa99128 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0x7fb14dc16d50_0 .net "iA1", 7 0, o0x10fa99128;  0 drivers
+o0x10fa99158 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0x7fb14dc16e00_0 .net "iB0", 7 0, o0x10fa99158;  0 drivers
+o0x10fa99188 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0x7fb14dc16eb0_0 .net "iB1", 7 0, o0x10fa99188;  0 drivers
+o0x10fa991b8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x7fb14dc16fc0_0 .net "iCLK", 0 0, o0x10fa991b8;  0 drivers
+o0x10fa991e8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x7fb14dc17060_0 .net "iRST_N", 0 0, o0x10fa991e8;  0 drivers
+v0x7fb14dc17100_0 .var "m0", 16 0;
+v0x7fb14dc171b0_0 .var "m1", 16 0;
+v0x7fb14dc17260_0 .var "result", 16 0;
+E_0x7fb14dc03d80/0 .event negedge, v0x7fb14dc17060_0;
+E_0x7fb14dc03d80/1 .event posedge, v0x7fb14dc16fc0_0;
+E_0x7fb14dc03d80 .event/or E_0x7fb14dc03d80/0, E_0x7fb14dc03d80/1;
+    .scope S_0x7fb14dc03000;
+T_0 ;
+    %wait E_0x7fb14dc03d80;
+    %load/vec4 v0x7fb14dc17060_0;
+    %cmpi/e 0, 0, 1;
+    %jmp/0xz  T_0.0, 4;
+    %pushi/vec4 0, 0, 8;
+    %assign/vec4 v0x7fb14dc169b0_0, 1;
+    %pushi/vec4 0, 0, 8;
+    %assign/vec4 v0x7fb14dc16b00_0, 1;
+    %pushi/vec4 0, 0, 8;
+    %assign/vec4 v0x7fb14dc16a50_0, 1;
+    %pushi/vec4 0, 0, 8;
+    %assign/vec4 v0x7fb14dc16bb0_0, 1;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0x7fb14dc16ca0_0;
+    %assign/vec4 v0x7fb14dc169b0_0, 1;
+    %load/vec4 v0x7fb14dc16e00_0;
+    %assign/vec4 v0x7fb14dc16b00_0, 1;
+    %load/vec4 v0x7fb14dc16d50_0;
+    %assign/vec4 v0x7fb14dc16a50_0, 1;
+    %load/vec4 v0x7fb14dc16eb0_0;
+    %assign/vec4 v0x7fb14dc16bb0_0, 1;
+    %load/vec4 v0x7fb14dc169b0_0;
+    %pad/u 17;
+    %load/vec4 v0x7fb14dc16b00_0;
+    %pad/u 17;
+    %mul;
+    %assign/vec4 v0x7fb14dc17100_0, 1;
+    %load/vec4 v0x7fb14dc16a50_0;
+    %pad/u 17;
+    %load/vec4 v0x7fb14dc16bb0_0;
+    %pad/u 17;
+    %mul;
+    %assign/vec4 v0x7fb14dc171b0_0, 1;
+    %load/vec4 v0x7fb14dc17100_0;
+    %load/vec4 v0x7fb14dc171b0_0;
+    %add;
+    %assign/vec4 v0x7fb14dc17260_0, 0;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "accum_adder.v";
