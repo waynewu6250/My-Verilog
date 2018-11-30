@@ -1,0 +1,127 @@
+#! /usr/local/Cellar/icarus-verilog/10.2_1/bin/vvp
+:ivl_version "10.2 (stable)" "(v10_2)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x7ff5f7c03380 .scope module, "async_SRAM" "async_SRAM" 2 4;
+ .timescale 0 0;
+    .port_info 0 /INPUT 8 "Address"
+    .port_info 1 /INOUT 16 "Data"
+    .port_info 2 /INPUT 1 "CS"
+    .port_info 3 /INPUT 1 "WE"
+    .port_info 4 /INPUT 1 "OE"
+P_0x7ff5f7c03ab0 .param/l "AddressSize" 0 2 6, +C4<00000000000000000000000000001000>;
+P_0x7ff5f7c03af0 .param/l "DataSize" 0 2 7, +C4<00000000000000000000000000010000>;
+L_0x7ff5f7c15230 .functor AND 1, L_0x7ff5f7c150d0, L_0x7ff5f7c15170, C4<1>, C4<1>;
+o0x1075b3008 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0x7ff5f7c03f80_0 .net "Address", 7 0, o0x1075b3008;  0 drivers
+o0x1075b3038 .functor BUFZ 1, C4<z>; HiZ drive
+v0x7ff5f7c14020_0 .net "CS", 0 0, o0x1075b3038;  0 drivers
+v0x7ff5f7c140c0_0 .net "Data", 15 0, L_0x7ff5f7c15580;  1 drivers
+v0x7ff5f7c14160 .array "Mem", 256 0, 15 0;
+o0x1075b3098 .functor BUFZ 1, C4<z>; HiZ drive
+v0x7ff5f7c14200_0 .net "OE", 0 0, o0x1075b3098;  0 drivers
+o0x1075b30c8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x7ff5f7c142e0_0 .net "WE", 0 0, o0x1075b30c8;  0 drivers
+v0x7ff5f7c14380_0 .net *"_s1", 0 0, L_0x7ff5f7c150d0;  1 drivers
+L_0x1075e5008 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v0x7ff5f7c14420_0 .net *"_s11", 1 0, L_0x1075e5008;  1 drivers
+o0x1075b3158 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+; Elide local net with no drivers, v0x7ff5f7c144d0_0 name=_s12
+v0x7ff5f7c145e0_0 .net *"_s3", 0 0, L_0x7ff5f7c15170;  1 drivers
+v0x7ff5f7c14680_0 .net *"_s4", 0 0, L_0x7ff5f7c15230;  1 drivers
+v0x7ff5f7c14720_0 .net *"_s6", 15 0, L_0x7ff5f7c15360;  1 drivers
+v0x7ff5f7c147d0_0 .net *"_s8", 9 0, L_0x7ff5f7c15420;  1 drivers
+E_0x7ff5f7c03f20 .event edge, v0x7ff5f7c142e0_0, v0x7ff5f7c14200_0;
+E_0x7ff5f7c03f50 .event edge, v0x7ff5f7c142e0_0, v0x7ff5f7c14020_0;
+L_0x7ff5f7c150d0 .reduce/nor o0x1075b3038;
+L_0x7ff5f7c15170 .reduce/nor o0x1075b3098;
+L_0x7ff5f7c15360 .array/port v0x7ff5f7c14160, L_0x7ff5f7c15420;
+L_0x7ff5f7c15420 .concat [ 8 2 0 0], o0x1075b3008, L_0x1075e5008;
+L_0x7ff5f7c15580 .functor MUXZ 16, o0x1075b3158, L_0x7ff5f7c15360, L_0x7ff5f7c15230, C4<>;
+S_0x7ff5f7c03bf0 .scope module, "sync_SRAM" "sync_SRAM" 2 42;
+ .timescale 0 0;
+    .port_info 0 /INPUT 8 "Address"
+    .port_info 1 /INPUT 16 "Data"
+    .port_info 2 /INPUT 1 "clk"
+    .port_info 3 /INPUT 1 "WE"
+    .port_info 4 /OUTPUT 16 "q"
+P_0x7ff5f7c03d50 .param/l "AddressSize" 0 2 44, +C4<00000000000000000000000000001000>;
+P_0x7ff5f7c03d90 .param/l "DataSize" 0 2 45, +C4<00000000000000000000000000010000>;
+L_0x7ff5f7c158c0 .functor BUFZ 16, L_0x7ff5f7c156a0, C4<0000000000000000>, C4<0000000000000000>, C4<0000000000000000>;
+o0x1075b3338 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0x7ff5f7c14900_0 .net "Address", 7 0, o0x1075b3338;  0 drivers
+o0x1075b3368 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v0x7ff5f7c149a0_0 .net "Data", 15 0, o0x1075b3368;  0 drivers
+v0x7ff5f7c14a50 .array "Mem", 256 0, 15 0;
+o0x1075b3398 .functor BUFZ 1, C4<z>; HiZ drive
+v0x7ff5f7c14b00_0 .net "WE", 0 0, o0x1075b3398;  0 drivers
+v0x7ff5f7c14ba0_0 .net *"_s0", 15 0, L_0x7ff5f7c156a0;  1 drivers
+v0x7ff5f7c14c90_0 .net *"_s2", 9 0, L_0x7ff5f7c15760;  1 drivers
+L_0x1075e5050 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v0x7ff5f7c14d40_0 .net *"_s5", 1 0, L_0x1075e5050;  1 drivers
+v0x7ff5f7c14df0_0 .var "addr_reg", 7 0;
+o0x1075b3488 .functor BUFZ 1, C4<z>; HiZ drive
+v0x7ff5f7c14ea0_0 .net "clk", 0 0, o0x1075b3488;  0 drivers
+v0x7ff5f7c14fb0_0 .net "q", 15 0, L_0x7ff5f7c158c0;  1 drivers
+E_0x7ff5f7c034e0 .event posedge, v0x7ff5f7c14ea0_0;
+L_0x7ff5f7c156a0 .array/port v0x7ff5f7c14a50, L_0x7ff5f7c15760;
+L_0x7ff5f7c15760 .concat [ 8 2 0 0], v0x7ff5f7c14df0_0, L_0x1075e5050;
+    .scope S_0x7ff5f7c03380;
+T_0 ;
+    %wait E_0x7ff5f7c03f50;
+    %load/vec4 v0x7ff5f7c14020_0;
+    %nor/r;
+    %load/vec4 v0x7ff5f7c142e0_0;
+    %nor/r;
+    %and;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %load/vec4 v0x7ff5f7c140c0_0;
+    %load/vec4 v0x7ff5f7c03f80_0;
+    %pad/u 10;
+    %ix/vec4 4;
+    %store/vec4a v0x7ff5f7c14160, 4, 0;
+T_0.0 ;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0x7ff5f7c03380;
+T_1 ;
+    %wait E_0x7ff5f7c03f20;
+    %load/vec4 v0x7ff5f7c14200_0;
+    %nor/r;
+    %load/vec4 v0x7ff5f7c142e0_0;
+    %nor/r;
+    %and;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_1.0, 8;
+    %vpi_call 2 31 "$display", "Operational Error in SRAM: OE and WE both active" {0 0 0};
+T_1.0 ;
+    %jmp T_1;
+    .thread T_1, $push;
+    .scope S_0x7ff5f7c03bf0;
+T_2 ;
+    %wait E_0x7ff5f7c034e0;
+    %load/vec4 v0x7ff5f7c14b00_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_2.0, 8;
+    %load/vec4 v0x7ff5f7c149a0_0;
+    %load/vec4 v0x7ff5f7c14900_0;
+    %pad/u 10;
+    %ix/vec4 3;
+    %ix/load 4, 1, 0; Constant delay
+    %assign/vec4/a/d v0x7ff5f7c14a50, 0, 4;
+T_2.0 ;
+    %load/vec4 v0x7ff5f7c14900_0;
+    %assign/vec4 v0x7ff5f7c14df0_0, 1;
+    %jmp T_2;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "SRAM.v";
