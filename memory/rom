@@ -1,0 +1,33 @@
+#! /usr/local/Cellar/icarus-verilog/10.2_1/bin/vvp
+:ivl_version "10.2 (stable)" "(v10_2)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x7f9c72406010 .scope module, "rom" "rom" 2 3;
+ .timescale 0 0;
+    .port_info 0 /INPUT 3 "addr"
+    .port_info 1 /OUTPUT 4 "data_out"
+L_0x7f9c72416610 .functor BUFZ 4, L_0x7f9c724163f0, C4<0000>, C4<0000>, C4<0000>;
+v0x7f9c72405970_0 .net *"_s0", 3 0, L_0x7f9c724163f0;  1 drivers
+v0x7f9c72416030_0 .net *"_s2", 4 0, L_0x7f9c724164b0;  1 drivers
+L_0x100ebc008 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v0x7f9c724160d0_0 .net *"_s5", 1 0, L_0x100ebc008;  1 drivers
+o0x100e8a098 .functor BUFZ 3, C4<zzz>; HiZ drive
+v0x7f9c72416180_0 .net "addr", 2 0, o0x100e8a098;  0 drivers
+v0x7f9c72416230_0 .net "data_out", 3 0, L_0x7f9c72416610;  1 drivers
+v0x7f9c72416320 .array "rom", 7 0, 3 0;
+L_0x7f9c724163f0 .array/port v0x7f9c72416320, L_0x7f9c724164b0;
+L_0x7f9c724164b0 .concat [ 3 2 0 0], o0x100e8a098, L_0x100ebc008;
+    .scope S_0x7f9c72406010;
+T_0 ;
+    %vpi_call 2 12 "$readmemb", "rom.data", v0x7f9c72416320 {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "rom.v";
