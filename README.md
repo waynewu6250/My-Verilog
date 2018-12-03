@@ -20,3 +20,11 @@ Sample Code for Verilog
 1. 2-bit counter <br>
 2. [Moore Machine](https://en.wikipedia.org/wiki/Moore_machine) <br>
 3. [Mealy Machine](https://en.wikipedia.org/wiki/Mealy_machine) <br>
+
+**D Memory**
+1. [SRAM](https://en.wikipedia.org/wiki/Static_random-access_memory) <br>
+2. [sync-FIFO](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)) <br>
+3. [aync-FIFO](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)) <br>
+3. [CAM](https://en.wikipedia.org/wiki/Content-addressable_memory) <br>
+4. [stack-LIFO](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) <br>
+5. [ROM](https://en.wikipedia.org/wiki/Read-only_memory) <br>
